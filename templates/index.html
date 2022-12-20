@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>ML API</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+  <div class="login">
+    <h1>Investment Prediction of S&P500</h1>
+
+    <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}" method="post">
+      <input type="text" name="Open" placeholder="Open" required="required" />
+      <input type="text" name="Close" placeholder="Close" required="required" />
+      <input type="text" name="Volume" placeholder="Volume" required="required" />
+      <input type="text" name="High" placeholder="High" required="required" />
+      <input type="text" name="Low" placeholder="Low" required="required" />
+      <input type="text" name="weekly_mean" placeholder="Weekly Mean" required="required" />
+      <input type="text" name="quarterly_mean" placeholder="Quarterly Mean" required="required" />
+      <input type="text" name="annual_mean" placeholder="Annual Mean" required="required" />
+      <input type="text" name="annual_weekly_mean" placeholder="Annual Weekly Mean" required="required" />
+      <input type="text" name="annual_quarterly_mean" placeholder="Annual Quarterly Mean" required="required" />
+      <input type="text" name="open_close_ratio" placeholder="Open Close Ratio" required="required" />
+      <input type="text" name="low_close_ratio" placeholder="Low Close Ratio" required="required" />
+      <input type="text" name="high_close_ratio" placeholder="High Close Ratio" required="required" />
+      <input type="text" name="weekly_trend" placeholder="Weekly Trend" required="required" />
+
+      <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+    </form>
+
+    <br>
+    {{ prediction_text }}
+
+  </div>
+
+
+</body>
+
+</html>
